@@ -1,0 +1,192 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;;
+    background-color: #000000;
+    scroll-behavior: smooth;
+}
+
+body.noscroll {
+    overflow: hidden;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 136, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 10%;
+    border: none;
+    backdrop-filter: blur(10px);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 20;
+    cursor: pointer;
+    font-size: 102px;
+    transition: font-size .5s ease-in-out, filter .3s ease-in-out, opacity .4s ease-in-out;
+}
+
+.login-button:hover {
+    font-size: 200px;
+}
+
+.login-button:active {
+    font-size: 900px;
+    filter: blur(5rem);
+    opacity: 0;
+}
+
+
+.background {
+    position: absolute;
+    top: 0 auto;
+    left: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2rem);
+    opacity: 0.7;
+}
+
+
+.Home {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat";
+}
+
+.t1, .t2, .t3, .t4{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+.t1 {
+    color: white;
+    font-weight: bold;
+    font-size: clamp(32px, 6vw, 72px);
+    font-family: "Pacifico", "Montserrat", sans-serif;
+    font-weight: normal;
+}
+
+.t2 {
+    color: white;
+    font-weight: bold;
+    font-size: clamp(32px, 6vw, 72px);
+    font-family: "Pacifico", "Montserrat", sans-serif;
+    font-weight: normal;
+}
+
+.t3 {
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: clamp(24px, 4vw, 62px);
+    font-family: "Montserrat", sans-serif;
+}
+
+.t4 {
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: clamp(16px, 2vw, 32px);
+    font-family: "Montserrat", sans-serif;
+}
+
+
+@keyframes IN-animation {
+    0% {
+        opacity: 0;
+        scale: 0;
+        filter: blur(5rem);
+    }
+
+    100% {
+        opacity: 1;
+        scale: 1;
+        filter: blur(0);
+    }
+}
+
+
+@keyframes IN-slide-animation {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 100%) scale(0);
+        filter: blur(3rem);
+        transform-origin: bottom center;
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes OUT-slide-animation {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(0);
+        transform-origin: top center;
+    }
+    
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100%) scale(0);
+        filter: blur(3rem);
+    }
+}
+
+
+.fade-out-login-button {
+    font-size: 400px;
+    filter: blur(1rem);
+    opacity: 0;
+    pointer-events: none;
+    transition: font-size 1s ease-in-out, opacity 1s ease-in-out, filter 1s ease-in-out;
+}
+
+.fade-out-background {
+    opacity: 1;
+    filter: blur(2rem);
+    transition: opacity 1s ease-in-out, filter 1s ease-in-out;
+}
+
+.in-slide-up {
+    animation: IN-slide-animation 1.5s cubic-bezier(1, 0, 0, 1) forwards;
+}
+
+.out-slide-up {
+    animation: OUT-slide-animation 1.5s cubic-bezier(1, 0, 0, 1) forwards;
+}
+

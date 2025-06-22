@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Montserrat;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #000000;
+    }
+
+    h2 {
+        font-size: medium;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #00e1ff;
+        color: rgb(0, 0, 0);
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #STATE {
+        background-color: chartreuse;
+    }
+
+    #DATE {
+        font-size: small;
+    }
+
+    #TIME {
+        font-size: small;
+    }
+
+
+</style>
+<body>
+    
+    <h1>HISTORY</h1>
+    
+    <h2>Search by DATE</h2>
+    <input type="text" id="searchBox" placeholder="search here!" oninput="search()"/>
+    <table id="information" border="2">
+        <thead>
+            <tr>
+                <th>STATE</th>
+                <th>DATE</th>
+                <th>TIME</th>
+            </tr>
+        </thead>
+
+        <tbody id="table-body"></tbody>
+    </table>
+
+</body>
+
+
+<script>
+    let intervalId = null;
+
+    function fetchData() {
+        fetch("data_genset.json")
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById("table-body");
+
+                tableBody.innerHTML = "";
+
+                data.forEach(entry => {
+                    const row = document.createElement("tr");
+
+                    const stateCell = document.createElement("td");
+                    stateCell.innerText = entry.STATE;
+                    stateCell.style.backgroundColor = entry.STATE === "ACTIVE" ? "chartreuse" : "tomato";
+
+                    const dateCell = document.createElement("td");
+                    dateCell.innerText = entry.DATE;
+
+                    const timeCell = document.createElement("td");
+                    timeCell.innerText = entry.STATE === "INACTIVE" ? "-" : entry.TIME;
+                    timeCell.style.color = entry.STATE === "INACTIVE" ? "red" : "green";
+
+                    row.appendChild(stateCell);
+                    row.appendChild(dateCell);
+                    row.appendChild(timeCell);
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    function startFetching() {
+        if (!intervalId) {
+            fetchData();
+            intervalId = setInterval(fetchData, 2000);
+            console.log("Fetching started.");
+        }
+    }
+
+    function stopFetching() {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+            console.log("Fetching stopped.");
+        }
+    }
+
+    function search() {
+        const searchBox = document.getElementById("searchBox");
+        if (!searchBox) {
+            startFetching();
+            return;
+        } else {
+            stopFetching();
+        }
+        
+        const filter = searchBox.value.toLowerCase();
+        const tableBody = document.getElementById("table-body");
+        const rows = tableBody.getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+            const dateCell = rows[i].getElementsByTagName("td")[1];
+            if (dateCell) {
+                const dateText = dateCell.textContent || dateCell.innerText;
+                if (dateText.toLowerCase().indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    startFetching();
+
+</script>
+</html>
