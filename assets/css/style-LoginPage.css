@@ -94,7 +94,7 @@ body.noscroll {
 .t1 {
     color: white;
     font-weight: bold;
-    font-size: clamp(32px, 6vw, 72px);
+    font-size: clamp(28px, 8vw, 48px);
     font-family: "Pacifico", "Montserrat", sans-serif;
     font-weight: normal;
 }
@@ -102,7 +102,7 @@ body.noscroll {
 .t2 {
     color: white;
     font-weight: bold;
-    font-size: clamp(32px, 6vw, 72px);
+    font-size: clamp(28px, 8vw, 48px);
     font-family: "Pacifico", "Montserrat", sans-serif;
     font-weight: normal;
 }
@@ -111,7 +111,7 @@ body.noscroll {
     transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
-    font-size: clamp(24px, 4vw, 62px);
+    font-size: clamp(20px, 6vw, 36px);
     font-family: "Montserrat", sans-serif;
     filter: blur(1rem);
 }
@@ -119,8 +119,8 @@ body.noscroll {
 .t4 {
     transform: translate(-50%, -50%);
     color: white;
-    font-weight: bold;
-    font-size: clamp(14px, 2vw, 42px);
+    font-weight: regular;
+    font-size: clamp(14px, 4vw, 24px);
     font-family: "Montserrat", sans-serif;
 }
 
@@ -173,44 +173,46 @@ body.noscroll {
 @keyframes IN-slide-animation-easeinout {
     0% {
         opacity: 0;
-        font-size: clamp(24px, 4vw, 62px);
         transform: translate(-50%, -50%) scale(0);
-        filter: blur(3rem);
+        filter: blur(2rem);
         transform-origin: center;
+        font-weight: regular;
     }
     100% {
         opacity: 1;
-        font-size: clamp(24px, 4vw, 62px);
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1.5);
         filter: blur(0);
     }
 }
 
 @keyframes OUT-slide-animation-easeinout {
     0% {
-        font-size: clamp(24px, 4vw, 62px);
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1.5);
         transform-origin: center;
     }
     100% {
-        font-size: clamp(24px, 4vw, 62px);
-        transform: translate(-50%, 20%) scale(.634);
+        font-weight: regular;
+        transform: translate(-50%, 50%) scale(1);
     }
 }
 
 @keyframes for-gabe-in {
     0% {
+        color: white;
         filter: blur(0);
     }
     100% {
+        color: rgba(255, 255, 255, 0.226);
         filter: blur(.5rem);
     }
 }
 @keyframes for-gabe-out {
     0% {
+        color: rgba(255, 255, 255, 0.226);
         filter: blur(.5rem);
     }
     100% {
+        color: white;
         filter: blur(0);
     }
 }
@@ -220,7 +222,7 @@ body.noscroll {
 }
 
 .out-gabe {
-    animation: for-gabe-out 1s ease-in-out forwards;
+    animation: for-gabe-out 1.5s ease-in-out forwards;
 }
 
 
@@ -247,11 +249,11 @@ body.noscroll {
 }
 
 .in-slide-up-easeinout {
-    animation: IN-slide-animation-easeinout 2s ease-in-out forwards;
+    animation: IN-slide-animation-easeinout 1s ease-in-out forwards;
 }
 
 .out-slide-up-easeinout {
-    animation: OUT-slide-animation-easeinout 2s ease-in-out forwards;
+    animation: OUT-slide-animation-easeinout 1s ease-in-out forwards;
 }
 
 
