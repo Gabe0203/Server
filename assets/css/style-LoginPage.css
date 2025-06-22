@@ -36,7 +36,7 @@ body.noscroll {
     height: 100px;
     padding: 10%;
     border: none;
-    font-family: "Bebas Neue", sans-serif;
+    font-family: "Bebas Neue", "Montserrat";
     font-weight: medium;
     cursor: pointer;
     font-size: 102px;
@@ -198,21 +198,21 @@ body.noscroll {
 
 @keyframes for-gabe-in {
     0% {
-        color: white;
+        opacity: 1;
         filter: blur(0);
     }
     100% {
-        color: rgba(255, 255, 255, 0.226);
+        opacity: .5;
         filter: blur(.5rem);
     }
 }
 @keyframes for-gabe-out {
     0% {
-        color: rgba(255, 255, 255, 0.226);
+        opacity: .5;
         filter: blur(.5rem);
     }
     100% {
-        color: white;
+        opacity: 1;
         filter: blur(0);
     }
 }
