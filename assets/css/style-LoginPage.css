@@ -37,7 +37,7 @@ body.noscroll {
     padding: 10%;
     border: none;
     font-family: "Bebas Neue", sans-serif;
-    font-weight: 20;
+    font-weight: medium;
     cursor: pointer;
     font-size: 102px;
     transition: font-size .5s ease-in-out, filter .3s ease-in-out, opacity .4s ease-in-out;
