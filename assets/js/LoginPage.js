@@ -16,11 +16,11 @@ async function goIn() {
         to.style.opacity = "0";
         gabe.style.opacity = "0";
         synch.style.opacity = "0";
-        
+
         login_box.style.display = "none";
         welcome.classList.add("in-slide-up");
-        
-        await sleep(3000);
+
+        await sleep(2000);
         welcome.classList.remove("in-slide-up");
         welcome.classList.add("out-slide-up");
         to.classList.add("in-slide-up");
@@ -32,12 +32,16 @@ async function goIn() {
 
         await sleep(2000);
         gabe.classList.remove("in-slide-up");
-        gabe.classList.add("out-slide-up");
-        synch.classList.add("in-slide-up");
+        gabe.style.opacity = "1";
+        gabe.classList.add("in-gabe");
+        synch.classList.add("in-slide-up-easeinout");
 
-        await sleep(2000);
-        synch.classList.remove("in-slide-up");
-        synch.classList.add("out-slide-up");
+        await sleep(4500);
+        synch.classList.remove("in-slide-up-easeinout");
+        synch.style.opacity = "1";
+        synch.classList.add("out-slide-up-easeinout");
+        gabe.classList.remove("in-gabe");
+        gabe.classList.add("out-gabe");
 
     }
 

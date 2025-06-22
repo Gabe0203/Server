@@ -36,7 +36,6 @@ body.noscroll {
     height: 100px;
     padding: 10%;
     border: none;
-    backdrop-filter: blur(10px);
     font-family: "Bebas Neue", sans-serif;
     font-weight: 20;
     cursor: pointer;
@@ -68,7 +67,7 @@ body.noscroll {
 }
 
 
-.Home {
+.welcome {
     position: relative;
     top: 0;
     left: 0;
@@ -111,13 +110,14 @@ body.noscroll {
     font-weight: bold;
     font-size: clamp(24px, 4vw, 62px);
     font-family: "Montserrat", sans-serif;
+    filter: blur(1rem);
 }
 
 .t4 {
     transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
-    font-size: clamp(16px, 2vw, 32px);
+    font-size: clamp(24px, 4vw, 62px);
     font-family: "Montserrat", sans-serif;
 }
 
@@ -167,6 +167,55 @@ body.noscroll {
     }
 }
 
+@keyframes IN-slide-animation-easeinout {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        filter: blur(3rem);
+        transform-origin: center;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes OUT-slide-animation-easeinout {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        transform-origin: center;
+    }
+    100% {
+        transform: translate(-50%, calc(-50% + 30px)) scale(.6);
+    }
+}
+
+@keyframes for-gabe-in {
+    0% {
+        filter: blur(0);
+    }
+    100% {
+        filter: blur(.5rem);
+    }
+}
+@keyframes for-gabe-out {
+    0% {
+        filter: blur(.5rem);
+    }
+    100% {
+        filter: blur(0);
+    }
+}
+
+.in-gabe {
+    animation: for-gabe-in 1s ease-in-out forwards;
+}
+
+.out-gabe {
+    animation: for-gabe-out 1s ease-in-out forwards;
+}
+
 
 .fade-out-login-button {
     font-size: 400px;
@@ -190,3 +239,10 @@ body.noscroll {
     animation: OUT-slide-animation 1.5s cubic-bezier(1, 0, 0, 1) forwards;
 }
 
+.in-slide-up-easeinout {
+    animation: IN-slide-animation-easeinout 2s ease-in-out forwards;
+}
+
+.out-slide-up-easeinout {
+    animation: OUT-slide-animation-easeinout 2s ease-in-out forwards;
+}
