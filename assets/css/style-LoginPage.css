@@ -251,3 +251,38 @@ body.noscroll {
 .out-slide-up-easeinout {
     animation: OUT-slide-animation-easeinout 2s ease-in-out forwards;
 }
+
+
+
+@media (max-width: 768px) {
+    .login-button {
+        width: 80px;
+        height: 80px;
+        font-size: 60px;
+    }
+
+    .t1, .t2 {
+        font-size: clamp(20px, 5vw, 40px);
+    }
+
+    .t3 {
+        font-size: clamp(18px, 4vw, 32px);
+    }
+
+    .t4 {
+        font-size: clamp(12px, 3vw, 24px);
+    }
+}
+
+@media (max-width: 480px) {
+    .login-button {
+        width: 60px;
+        height: 60px;
+        font-size: 40px;
+    }
+
+    .t1, .t2, .t3, .t4 {
+        text-align: center;
+        padding: 0 10px;
+    }
+}

@@ -42,7 +42,7 @@ async function goIn() {
         synch.classList.add("out-slide-up-easeinout");
         gabe.classList.remove("in-gabe");
         gabe.classList.add("out-gabe");
-
+        
     }
 
 }
