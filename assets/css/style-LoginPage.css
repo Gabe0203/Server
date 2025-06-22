@@ -81,6 +81,7 @@ body.noscroll {
 
 .t1, .t2, .t3, .t4{
     position: absolute;
+    display: flex;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -117,7 +118,7 @@ body.noscroll {
     transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
-    font-size: clamp(24px, 4vw, 62px);
+    font-size: clamp(14px, 2vw, 42px);
     font-family: "Montserrat", sans-serif;
 }
 
@@ -170,12 +171,14 @@ body.noscroll {
 @keyframes IN-slide-animation-easeinout {
     0% {
         opacity: 0;
+        font-size: clamp(24px, 4vw, 62px);
         transform: translate(-50%, -50%) scale(0);
         filter: blur(3rem);
         transform-origin: center;
     }
     100% {
         opacity: 1;
+        font-size: clamp(24px, 4vw, 62px);
         transform: translate(-50%, -50%) scale(1);
         filter: blur(0);
     }
@@ -183,11 +186,13 @@ body.noscroll {
 
 @keyframes OUT-slide-animation-easeinout {
     0% {
+        font-size: clamp(24px, 4vw, 62px);
         transform: translate(-50%, -50%) scale(1);
         transform-origin: center;
     }
     100% {
-        transform: translate(-50%, 20%) scale(.61);
+        font-size: clamp(24px, 4vw, 62px);
+        transform: translate(-50%, 20%) scale(.634);
     }
 }
 
